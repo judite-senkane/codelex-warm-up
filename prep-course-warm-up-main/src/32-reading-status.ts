@@ -1,30 +1,38 @@
 export {};
 
-const library = [
+interface I_Book {
+  title: string;
+  author: string;
+  isRead: boolean;
+}
+const library: I_Book[] = [
   {
-    title: "Bill Gates",
-    author: "The Road Ahead",
-    isRead: true
+    title: 'Bill Gates',
+    author: 'The Road Ahead',
+    isRead: true,
   },
   {
-    title: "Steve Jobs",
-    author: "Walter Isaacson",
-    isRead: true
+    title: 'Steve Jobs',
+    author: 'Walter Isaacson',
+    isRead: true,
   },
   {
-    title: "Mockingjay: The Final Book of The Hunger Games",
-    author: "Suzanne Collins",
-    isRead: false
-  }
+    title: 'Mockingjay: The Final Book of The Hunger Games',
+    author: 'Suzanne Collins',
+    isRead: false,
+  },
 ];
 
-const showStatus = (books: {title: string, author: string, isRead: boolean}[]): void => {
-  for (let i = 0; i < books.length; i++){
-  if(books[i].isRead) {
-   console.log(`Already read '${books[i].title}' by ${books[i].author}.`);
-  } else {
-    console.log(`You still need to read '${books[i].title}' by ${books[i].author}.`);
-  }}
+const showStatus = (books: I_Book[]): void => {
+  books.forEach((book) => {
+    if (book.isRead) {
+      console.log(`Already read '${book.title}' by ${book.author}.`);
+    } else {
+      console.log(
+        `You still need to read '${book.title}' by ${book.author}.`
+      );
+    }
+  });
 };
 
 showStatus(library);

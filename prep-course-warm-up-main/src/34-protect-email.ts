@@ -10,8 +10,10 @@ const protectEmail = (email: string): string => {
   let hiddenEmail: string;
   if (emailName.length > 5) {
     hiddenEmail = `${emailName.slice(0, 3)}...@${domainName}`;
-  } else if (emailName.length > 2) {
+  } else if (emailName.length === 5) {
     hiddenEmail = `${emailName.slice(0, 2)}...@${domainName}`;
+  } else if (emailName.length === 4) {
+    hiddenEmail = `${emailName.slice(0, 1)}...@${domainName}`;
   } else {
     hiddenEmail = `...@${domainName}`;
   }

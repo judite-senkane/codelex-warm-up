@@ -8,8 +8,11 @@ export {};
  * Luckily they're not so difficult to learn. As always w3schools will help:
  *  - https://www.w3schools.com/js/js_objects.asp
  */
-
-const books = [
+interface I_Book {
+  title: string;
+  author: string
+}
+const books: I_Book[] = [
   {
     title: "4 hour work week",
     author: "Tim Ferris"
@@ -20,6 +23,6 @@ const books = [
   }
 ];
 
-const getTheTitles = (array: {title: string, author: string}[]): string[] => array.map((book) => book.title);
+const getTheTitles = (array: I_Book[]): string[] => array.map((book) => book.title);
 
 console.log(getTheTitles(books)); // Expected output: ['4 hour work week', 'Tools of Titans']

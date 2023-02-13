@@ -14,7 +14,8 @@ function remove(
 ): (number | string)[] {
   let arrayCopy: (number | string)[] = [...arr];
   const indexToRemove = arrayCopy.indexOf(valueToRemove);
-  arrayCopy.splice(indexToRemove, 1);
+  if(indexToRemove > -1) {
+  arrayCopy.splice(indexToRemove, 1);}
   return arrayCopy;
 }
 
